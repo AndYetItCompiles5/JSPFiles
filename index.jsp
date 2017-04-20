@@ -7,9 +7,9 @@
 	<%
 		String anyErrors = request.getParameter("Error");
 		if (anyErrors != null && anyErrors.equals("1")) {
-			out.println("USERNAME IS INVALID");
+			out.println("USER IS DEACTIVATED");
 		} else if (anyErrors != null && anyErrors.equals("2")) {
-			out.println("PASSWORD IS INVALID");
+			out.println("USERNAME OR PASSWORD IS INVALID");
 		} else if (anyErrors != null && anyErrors.equals("3")){
 			out.println("SOMETHING WENT WRONG");
 		}
@@ -17,7 +17,7 @@
 			out.println("MUST LOGIN");
 		}
 	%>
-	<br> Login form:
+	<br>
 	<br>
 	<br>
 	<form method="post" action="Login_action.jsp" name="Login">

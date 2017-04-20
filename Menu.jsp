@@ -1,5 +1,5 @@
 <%@include file = "verifyLogin.jsp"%>
-<%@page language="java" import="Project..*,java.util.*"%>
+<%@page language="java" import="java.util.*,Project.*"%>
 <html>
 <head>
 <title></title>
@@ -7,12 +7,13 @@
 <body>
 
 	<%
-		UserController uc = (UserController) session.getAttribute("sess");
-			User currentU = uc.getCurrentUser();
-			String name = currentU.getfName();
-			out.print("Hello User " + name);
-		ArrayList<User> allUsers = new ArrayList<User>();
-		allUsers = uc.getAllUsers();
+		UserUI userUI = (UserUI) session.getAttribute("userUI");
+		AdminUI adminUI = (AdminUI) session.getAttribute("adminUI");
+		DBController dbController = (DBController) session.getAttribute("dbController");
+		Account currentU = dbController.getAccount(session.getAttribute("username").toString());
+		String fullName = currentU.getFirstName() + " " + currentU.getLastName();
+		out.print("Hello " + fullName);
+		String[][] allUsers = adminUI.viewUsers();
 	%>
 	<table style="text-align: left; width: 100%;" border="1"
 		cellpadding="2" cellspacing="2">
@@ -33,23 +34,23 @@
 				<td style="vertical-align: top; text-align: center;">Status</td>
 				<td style="vertical-align: top;">Delete</td>
 			</tr>
-			<% for(int i = 0; i<allUsers.size(); i++){ %>
+			<% for(int i = 0; i<allUsers.length; i++){ %>
 			<tr>
 				<td style="vertical-align: top;">
 					<form method="post" action="Edit.jsp" name="Edit">
 						<input name="Edit" value="Edit" type="submit"> <input
-							name="Username" value="<%= (allUsers.get(i)).getUsername() %>" type="hidden">
+							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
 					</form>
 				</td>
-				<td style="vertical-align: top;"><%out.print(allUsers.get(i).getFullName());%></td>
-				<td style="vertical-align: top;"><%out.print(allUsers.get(i).getUsername());%></td>
-				<td style="vertical-align: top;"><%out.print(allUsers.get(i).getPassword());%></td>
-				<td style="vertical-align: top;"><%out.print(allUsers.get(i).getType());%></td>
-				<td style="vertical-align: top;"><%out.print(allUsers.get(i).getStatus());%></td>
+				<td style="vertical-align: top;"><%out.print(allUsers[i][2]);%></td>
+				<td style="vertical-align: top;"><%out.print(allUsers[i][0]);%></td>
+				<td style="vertical-align: top;"><%out.print(allUsers[i][1]);%></td>
+				<td style="vertical-align: top;"><%out.print(allUsers[i][3]);%></td>
+				<td style="vertical-align: top;"><%out.print(allUsers[i][4]);;%></td>
 				<td style="vertical-align: top;">
 					<form method="post" action="Delete.jsp" name="Delete">
 						<input name="Delete" value="Delete" type="submit"> <input
-							name="Username" value="<%= (allUsers.get(i)).getUsername() %>" type="hidden">
+							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
 					</form>
 				</td>
 			</tr>

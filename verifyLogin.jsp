@@ -1,7 +1,7 @@
-<%@page language="java" import="edu.csbsju.csci230.*"%>
+<%@page language="java" import="Project.*"%>
 
-<%UserController uController = (UserController) session.getAttribute("sess"); 
-if(uController==null || !uController.isLoggedIn()){
+<%LoginUI loginUI = (LoginUI) session.getAttribute("loginUI"); 
+if(loginUI.getLoggedIn().equals("")){
 	response.sendRedirect("index.jsp?Error=4");
 	return;
 }%>

@@ -1,4 +1,4 @@
-<%@page language="java" import="Project.*,java.util.*"%>
+<%@page language="java" import="edu.csbsju.csci230.*,java.util.*"%>
 
 <%UserController uc = (UserController) session.getAttribute("sess");
 	String fName = request.getParameter("FirstName");

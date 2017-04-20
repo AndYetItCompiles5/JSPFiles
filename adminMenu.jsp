@@ -8,8 +8,8 @@ http-equiv="content-type">
 <title>adminMenu.jsp</title>
 </head>
 <body>
-<a href="Search.jsp">Manage Universities</a><br>
-<a href="Saved_schools.jsp">Manage Users</a><br>
+<a href="manageUniv.jsp">Manage Universities</a><br>
+<a href="ManageUsers.jsp">Manage Users</a><br>
 <br>
 </body>
 </html>

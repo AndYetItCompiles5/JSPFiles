@@ -22,97 +22,97 @@
 				<td style="vertical-align: top;">SCHOOL<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="schoolName" value="<% univ.getName(); %>"><br></td>
+					name="schoolName" value="<%= univ.getName() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">STATE<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="state" value="<% univ.getState(); %>"><br></td>
+					name="state" value="<%= univ.getState() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">LOCATION<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="location" value="<% univ.getLocation(); %>"></td>
+					name="location" value="<%= univ.getLocation() %>"></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">CONTROL<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="control" value="<% univ.getControl(); %>"><br></td>
+					name="control" value="<%= univ.getControl() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">NUMBER OF STUDENTS<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="numStudents" value="<% univ.getNumStudents(); %>"><br></td>
+					name="numStudents" value="<%= univ.getNumStudents() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">% FEMALE<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="perFemale" value="<% univ.getPercentFemale(); %>"><br></td>
+					name="perFemale" value="<%= univ.getPercentFemale()%>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">SAT VERBAL<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="satVerbal" value="<% univ.getSatVerbal(); %>"><br></td>
+					name="satVerbal" value="<%= univ.getSatVerbal() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">SAT MATH<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="satMath" value="<% univ.getSatMath(); %>"><br></td>
+					name="satMath" value="<%= univ.getSatMath() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">EXPENSES<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="expenses" value="<% univ.getExpenses(); %>"><br></td>
+					name="expenses" value="<%= univ.getExpenses() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">% FINANCIAL AID<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="perFinancialAid" value="<% univ.getFinancialAid(); %>"><br></td>
+					name="perFinancialAid" value="<%= univ.getFinancialAid() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">NUMBER OF APPLICANTS<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="numApplicants" value="<% univ.getNumApplicants(); %>"><br></td>
+					name="numApplicants" value="<%= univ.getNumApplicants() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">% ADMITTED<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="perAdmitted" value="<% univ.getPercentAdmitted(); %>"><br></td>
+					name="perAdmitted" value="<%= univ.getPercentAdmitted() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">% ENROLLED<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="perEnrolled" value="<% univ.getPercentEnrolled(); %>"><br></td>
+					name="perEnrolled" value="<%= univ.getPercentEnrolled() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">ACADEMIC SCALE (1-5)<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="academicScale" value="<% univ.getAcademicScale(); %>"><br></td>
+					name="academicScale" value="<%= univ.getAcademicScale() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">SOCIAL SCALE (1-5)<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="socialScale" value="<% univ.getSocialScale(); %>"><br></td>
+					name="socialScale" value="<%= univ.getSocialScale() %>"><br></td>
 			</tr>
 			<tr>
 				<td style="vertical-align: top;">QUALITY OF LIFE SCALE (1-5)<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="qualityScale" value="<% univ.getLifeScale(); %>"><br></td>
+					name="qualityScale" value="<%= univ.getLifeScale() %>"><br></td>
 			</tr>
 			<% for(int i =0; i<emphases.size();i++){%>
 			<tr>

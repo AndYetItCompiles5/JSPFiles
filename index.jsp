@@ -34,7 +34,7 @@
 				<tr>
 					<td style="vertical-align: top;">Password<br>
 					</td>
-					<td style="vertical-align: top;"><input name="Password">
+					<td style="vertical-align: top;"><input type="password" name="Password">
 					</td>
 				</tr>
 			<tr>

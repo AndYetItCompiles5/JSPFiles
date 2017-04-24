@@ -1,11 +1,10 @@
-<%@include file = "verifyLogin.jsp"%>
-<%@page language="java" import="edu.csbsju.csci230.*,java.util.*"%>
+
+<%@page language="java" import="Project.*,java.util.*"%>
 
 <%
-UserController uc = (UserController) session.getAttribute("sess");
+DBController dbController = (DBController) session.getAttribute("dbController");
 
    String specificUsername = request.getParameter("Username");
-   User specificUser = uc.getSpecificUser(specificUsername);
-   uc.deleteUser(specificUser);
-   response.sendRedirect("Menu.jsp");
+   dbController.deleteUser(specificUsername);
+   response.sendRedirect("ManageUsers.jsp");
 %>

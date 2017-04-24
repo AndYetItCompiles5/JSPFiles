@@ -6,7 +6,7 @@
 <title>schoolSearchMenu</title>
 </head>
 <body>
-	<form method="post" action="searchResult.html" name="SearchMenu">
+	<form method="post" action="SearchResults.jsp" name="SearchMenu">
 		&nbsp; <b>Search Menu</b><br>   
 		<table style="text-align: left; width: 892px; height: 566px;"
 			border="1" cellpadding="2" cellspacing="2">

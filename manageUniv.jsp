@@ -57,7 +57,7 @@
 						University school = dbController.getUniversity(schoolName);%>
 				<tr>
 
-					<td style="vertical-align: top;"><br><%=school.getName()%></td>
+					<td style="vertical-align: top;"><br><%=schoolName%></td>
 					<td style="vertical-align: top;"><br><%=school.getState()%></td>
 					<td style="vertical-align: top;"><br><%=school.getLocation() %></td>
 					<td style="vertical-align: top;"><br><%=school.getControl()%></td>
@@ -76,7 +76,7 @@
 					<td style="vertical-align: top;"><br>
 					<form method="post" action="editUniv.jsp" name="Edit">
 						<input name="Edit" value="Edit" type="submit"> 
-						<input name="schoolName" value="<%=school.getName()%>" type="hidden">
+						<input name="schoolName" value="<%=schoolName%>" type="hidden">
 					</form>
 					</td>
 				</tr>

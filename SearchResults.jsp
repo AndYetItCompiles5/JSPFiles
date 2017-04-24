@@ -6,94 +6,242 @@
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <title>SearchResults</title>
 </head>
+<%
+				String state = "-1";
+				String location = "-1";
+				String control = "-1";
+				int numStudentsLow = 0;
+				int numStudentsHigh = 0;
+				double perFemaleLow = 0;
+				double perFemaleHigh = 0;
+				int satVerbalLow = 0;
+				int satVerbalHigh = 0;
+				int satMathLow = 0;
+				int satMathHigh = 0;
+				int expensesLow = 0;
+				int expensesHigh = 0;
+				double perFALow = 0;
+				double perFAHigh = 0;
+				int numApplicantsLow = 0;
+				int numApplicantsHigh = 0;
+				double perAdmittedLow = 0;
+				double perAdmittedHigh = 0;
+				double perEnrolledLow = 0;
+				double perEnrolledHigh = 0;
+				int academicScaleLow = 0;
+				int academicScaleHigh = 0;
+				int socialScaleLow = 0;
+				int socialScaleHigh = 0;
+				int lifeScaleLow = 0;
+				int lifeScaleHigh = 0;
+
+				SearchController sController = new SearchController();
+				UserUI userUI = (UserUI) session.getAttribute("userUI");
+				Set<String> listSchools = new HashSet<String>();
+				String name = request.getParameter("schoolName");
+				if (request.getParameter("state") == null) {
+					state = "-1";
+				} else {
+					state = request.getParameter("state");
+				}
+				if (request.getParameter("location") == null) {
+					location = "-1";
+				} else {
+					location = request.getParameter("location");
+				}
+				if (request.getParameter("control") == null) {
+					control = "-1";
+				} else {
+					control = request.getParameter("control");
+				}
+				if (!request.getParameter("numStudentsLow").equals("")) {
+					numStudentsLow = Integer.parseInt(request.getParameter("numStudentsLow"));
+				} else {
+					numStudentsLow = 0;
+				}
+				if (!request.getParameter("numStudentsHigh").equals("")) {
+					numStudentsHigh = Integer.parseInt(request.getParameter("numStudentsHigh"));
+				} else {
+					numStudentsHigh = 0;
+				}
+				if (!request.getParameter("perFemaleLow").equals("")) {
+					perFemaleLow = Integer.parseInt(request.getParameter("perFemaleLow"));
+				} else {
+					perFemaleLow = 0;
+				}
+				if (!request.getParameter("perFemaleHigh").equals("")) {
+					perFemaleHigh = Integer.parseInt(request.getParameter("perFemaleHigh"));
+				} else {
+					perFemaleHigh = 0;
+				}
+				if (!request.getParameter("satVerbalLow").equals("")) {
+					satVerbalLow = Integer.parseInt(request.getParameter("satVerbalLow"));
+				} else {
+					satVerbalLow = 0;
+				}
+				if (!request.getParameter("satVerbalHigh").equals("")) {
+					satVerbalHigh = Integer.parseInt(request.getParameter("satVerbalHigh"));
+				} else {
+					satVerbalHigh = 0;
+				}
+				if (!request.getParameter("satMathLow").equals("")) {
+					satMathLow = Integer.parseInt(request.getParameter("satMathLow"));
+				} else {
+					satMathLow = 0;
+				}
+				if (!request.getParameter("satMathHigh").equals("")) {
+					satMathHigh = Integer.parseInt(request.getParameter("satMathHigh"));
+				} else {
+					satMathHigh = 0;
+				}
+				if (!request.getParameter("expensesLow").equals("")) {
+					expensesLow = Integer.parseInt(request.getParameter("expensesLow"));
+				} else {
+					expensesLow = 0;
+				}
+				if (!request.getParameter("expensesHigh").equals("")) {
+					expensesHigh = Integer.parseInt(request.getParameter("expensesHigh"));
+				} else {
+					expensesHigh = 0;
+				}
+				if (!request.getParameter("perFALow").equals("")) {
+					perFALow = Integer.parseInt(request.getParameter("perFALow"));
+				} else {
+					perFALow = 0;
+				}
+				if (!request.getParameter("perFAHigh").equals("")) {
+					perFAHigh = Integer.parseInt(request.getParameter("perFAHigh"));
+				} else {
+					perFAHigh = 0;
+				}
+				if (!request.getParameter("numApplicantsLow").equals("")) {
+					numApplicantsLow = Integer.parseInt(request.getParameter("numApplicantsLow"));
+				} else {
+					numApplicantsLow = 0;
+				}
+				if (!request.getParameter("numApplicantsHigh").equals("")) {
+					numApplicantsHigh = Integer.parseInt(request.getParameter("numApplicantsHigh"));
+				} else {
+					numApplicantsHigh = 0;
+				}
+				if (!request.getParameter("perAdmittedLow").equals("")) {
+					perAdmittedLow = Integer.parseInt(request.getParameter("perAdmittedLow"));
+				} else {
+					perAdmittedLow = 0;
+				}
+				if (!request.getParameter("perAdmittedHigh").equals("")) {
+					perAdmittedHigh = Integer.parseInt(request.getParameter("perAdmittedHigh"));
+				} else {
+					perAdmittedHigh = 0;
+				}
+				if (!request.getParameter("perEnrolledLow").equals("")) {
+					perEnrolledLow = Integer.parseInt(request.getParameter("perEnrolledLow"));
+				} else {
+					perEnrolledLow = 0;
+				}
+				if (!request.getParameter("perEnrolledHigh").equals("")) {
+					perEnrolledHigh = Integer.parseInt(request.getParameter("perEnrolledHigh"));
+				} else {
+					perEnrolledHigh = 0;
+				}
+				if (!request.getParameter("academicScaleLow").equals("")) {
+					academicScaleLow = Integer.parseInt(request.getParameter("academicScaleLow"));
+				} else {
+					academicScaleLow = 0;
+				}
+				if (!request.getParameter("academicScaleHigh").equals("")) {
+					academicScaleHigh = Integer.parseInt(request.getParameter("academicScaleHigh"));
+				} else {
+					academicScaleHigh = 0;
+				}
+				if (!request.getParameter("socialScaleLow").equals("")) {
+					socialScaleLow = Integer.parseInt(request.getParameter("socialScaleLow"));
+				} else {
+					socialScaleLow = 0;
+				}
+				if (!request.getParameter("socialScaleHigh").equals("")) {
+					socialScaleHigh = Integer.parseInt(request.getParameter("socialScaleHigh"));
+				} else {
+					socialScaleHigh = 0;
+				}
+				if (!request.getParameter("lifeScaleLow").equals("")) {
+					lifeScaleLow = Integer.parseInt(request.getParameter("lifeScaleLow"));
+				} else {
+					lifeScaleLow = 0;
+				}
+				if (!request.getParameter("lifeScaleHigh").equals("")) {
+					lifeScaleHigh = Integer.parseInt(request.getParameter("lifeScaleHigh"));
+				} else {
+					lifeScaleHigh = 0;
+				}
+
+				ArrayList<String> emphases = new ArrayList<String>();
+				if (request.getParameter("emphases1") != "") {
+					emphases.add(request.getParameter("emphases1"));
+				}
+				if (request.getParameter("emphases2") != "") {
+					emphases.add(request.getParameter("emphases2"));
+				}
+				if (request.getParameter("emphases3") != "") {
+					emphases.add(request.getParameter("emphases3"));
+				}
+				if (request.getParameter("emphases4") != "") {
+					emphases.add(request.getParameter("emphases4"));
+				}
+				if (request.getParameter("emphases5") != "") {
+					emphases.add(request.getParameter("emphases5"));
+				}
+				if(emphases.isEmpty()){
+					emphases=null;
+				}
+
+				listSchools = userUI.search(name, state, location, control, numStudentsLow,
+						numStudentsHigh, perFemaleLow, perFemaleHigh, satVerbalLow, satVerbalHigh, satMathLow, satMathHigh,
+						expensesLow, expensesHigh, perFALow, perFAHigh, numApplicantsLow, numApplicantsHigh, perAdmittedLow,
+						perAdmittedHigh, perEnrolledLow, perEnrolledHigh, academicScaleLow, academicScaleHigh,
+						socialScaleLow, socialScaleHigh, lifeScaleLow, lifeScaleHigh, emphases);
+				%>
 <body>
 <b>Search Results:</b>
 		<div style="text-align: center;"></div>
-		<table style="text-align: left; width: 100%;" border="1">
-			<tbody>
-				<tr>
-					<td style="text-align: center; width: 552px;"><br> Save School to School List</td>
-					<td style="text-align: center; width: 552px;"><br>School Name</td>
-					<td style="text-align: center; width: 552px;"><br>View School Details</td>
-				</tr>
-				<%
-					SearchController sController = new SearchController();
-					String name = request.getParameter("???");
-					String state = request.getParameter("???");
-					String location = request.getParameter("???");
-					String control = request.getParameter("???");
-					int numStudentsLow = Integer.parseInt(request.getParameter("???"));
-					int numStudentsHigh = Integer.parseInt(request.getParameter("???"));
-					double perFemaleLow = Double.parseDouble(request.getParameter("???"));
-					double perFemaleHigh = Double.parseDouble(request.getParameter("???"));
-					int satVerbalLow = Integer.parseInt(request.getParameter("???"));
-					int satVerbalHigh = Integer.parseInt(request.getParameter("???"));
-					int satMathLow = Integer.parseInt(request.getParameter("???"));
-					int satMathHigh = Integer.parseInt(request.getParameter("???"));
-					int expensesLow = Integer.parseInt(request.getParameter("???"));
-					int expensesHigh = Integer.parseInt(request.getParameter("???"));
-					double perFALow = Double.parseDouble(request.getParameter("???"));
-					double perFAHigh = Double.parseDouble(request.getParameter("???"));
-					int numApplicantsLow = Integer.parseInt(request.getParameter("???"));
-					int numApplicantsHigh = Integer.parseInt(request.getParameter("???"));
-					double perAdmittedLow = Double.parseDouble(request.getParameter("???"));
-					double perAdmittedHigh = Double.parseDouble(request.getParameter("???"));
-					double perEnrolledLow = Double.parseDouble(request.getParameter("???"));
-					double perEnrolledHigh = Double.parseDouble(request.getParameter("???"));
-					int academicScaleLow = Integer.parseInt(request.getParameter("???"));
-					int academicScaleHigh = Integer.parseInt(request.getParameter("???"));
-					int socialScaleLow = Integer.parseInt(request.getParameter("???"));
-					int socialScaleHigh = Integer.parseInt(request.getParameter("???"));
-					int lifeScaleLow = Integer.parseInt(request.getParameter("???"));
-					int lifeScaleHigh = Integer.parseInt(request.getParameter("???"));
-					
-					ArrayList<String> emphases = new ArrayList<String>();
-					if(request.getParameter("emp1") != null){
-						emphases.add(request.getParameter("emp1"));
-					}
-					if(request.getParameter("emp2") != null){
-						emphases.add(request.getParameter("emp2"));
-					}
-					if(request.getParameter("emp3") != null){
-						emphases.add(request.getParameter("emp3"));
-					}
-					if(request.getParameter("emp4") != null){
-						emphases.add(request.getParameter("emp4"));
-					}
-					if(request.getParameter("emp5") != null){
-						emphases.add(request.getParameter("emp5"));
-					}
-					
-					HashSet<String> listSchools = sController.search(name,state,location,control,numStudentsLow,numStudentsHigh,perFemaleLow,perFemaleHigh,
-							satVerbalLow,satVerbalHigh,satMathLow,satMathHigh,expensesLow,expensesHigh,perFALow,perFAHigh,numApplicantsLow,numApplicantsHigh,
-							perAdmittedLow,perAdmittedHigh,perEnrolledLow,perEnrolledHigh,academicScaleLow,academicScaleHigh,socialScaleLow,socialScaleHigh,
-							lifeScaleLow,lifeScaleHigh,emphases);
-					for(String school: listSchools){
+	<table style="text-align: left; width: 100%;" border="1">
+		<tbody>
+			<tr>
+				<td style="text-align: center; width: 552px;"><br> Save
+					School to School List</td>
+				<td style="text-align: center; width: 552px;"><br>School
+					Name</td>
+				<td style="text-align: center; width: 552px;"><br>View
+					School Details</td>
+			</tr>
+			
+				<% for (String school : listSchools) {
+			%>
+			<tr>
+				<td style="vertical-align: top;">
+					<form method="post" action="SaveAction.jsp" name="Save">
+						<input name="Save" value="Save" type="submit"> <input
+							name="schoolName" value="<%out.print(school);%>" type="hidden">
+					</form>
+				</td>
+				<td style="vertical-align: top;">
+					<%=
+						school
 					%>
-				<tr>
-					<td style="vertical-align: top; width: 552px; text-align: center;"><br>
-						<form method="post" action="???" name="Save">
-							<input name="save" value="Save" type="submit">
-							<input name="schoolName" value="<%=school%>" type="hidden">
-						</form>
-					</td>
-					
-					<td style="vertical-align: top; text-align: center;"><br>
-						<%=school%>
-					</td>
-					
-					<td style="vertical-align: top; text-align: center;"><br>
-						<!-- need to figure out action for this form; views school details -->
-						<form method="post" action="viewSchool.jsp" name="View">
-							<input name="view" value="View" type="submit">
-							<input name="schoolName" value="<%=school%>" type="hidden">
-						</form>
-					</td>
-				</tr>
-				<% }%>
-				
-			</tbody>
-		</table>
-		<br>
+				</td>
+				<td style="vertical-align: top;">
+					<form method="post" action="viewSchool.jsp" name="View">
+						<input name="View" value="View" type="submit"> <input
+							name="schoolName" value="<%out.print(school);%>" type="hidden">
+					</form>
+				</td>
+			</tr>
+			<%
+				}
+			%>
+
+		</tbody>
+	</table>
+>>>>>>> 0f5e44d0d76a20016b071e73d6842d613d2dcc72
 </body>
 </html>

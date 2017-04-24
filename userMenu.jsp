@@ -9,7 +9,7 @@
 <body>
 	<a href="Search.jsp">Search for Schools</a>
 	<br>
-	<a href="Saved_schools.jsp">Manage My Saved Schools</a>
+	<a href="userSavedSchools.jsp">Manage My Saved Schools</a>
 	<br>
 	<a href="EditProfile.jsp">Manage My Profile</a>&nbsp;
 	<br>

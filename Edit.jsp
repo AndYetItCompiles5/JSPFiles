@@ -1,4 +1,4 @@
-<%@page language="java" import="edu.csbsju.csci230.*,java.util.*"%>
+<%@page language="java" import="Project.*,java.util.*"%>
 <html>
 <head>
 <%@include file="verifyLogin.jsp"%>

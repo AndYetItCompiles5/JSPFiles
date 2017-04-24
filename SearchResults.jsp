@@ -64,7 +64,7 @@
 						emphases.add(request.getParameter("emp5"));
 					}
 					
-					HastSet<String> listSchools = sController.search(name,state,location,control,numStudentsLow,numStudentsHigh,perFemaleLow,perFemaleHigh,
+					HashSet<String> listSchools = sController.search(name,state,location,control,numStudentsLow,numStudentsHigh,perFemaleLow,perFemaleHigh,
 							satVerbalLow,satVerbalHigh,satMathLow,satMathHigh,expensesLow,expensesHigh,perFALow,perFAHigh,numApplicantsLow,numApplicantsHigh,
 							perAdmittedLow,perAdmittedHigh,perEnrolledLow,perEnrolledHigh,academicScaleLow,academicScaleHigh,socialScaleLow,socialScaleHigh,
 							lifeScaleLow,lifeScaleHigh,emphases);
@@ -84,7 +84,7 @@
 					
 					<td style="vertical-align: top; text-align: center;"><br>
 						<!-- need to figure out action for this form; views school details -->
-						<form method="post" action="???" name="View">
+						<form method="post" action="viewSchool.jsp" name="View">
 							<input name="view" value="View" type="submit">
 							<input name="schoolName" value="<%=school%>" type="hidden">
 						</form>

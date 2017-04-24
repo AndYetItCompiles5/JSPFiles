@@ -1,13 +1,18 @@
-<%@include file = "verifyLogin.jsp"%>
+
 <html>
 <head>
-
 <title>Add User Form</title>
 </head>
 <body>
 	<br> Add User form:
 	<br>
 	<br>
+	<% 	
+		String error = request.getParameter("error");
+		if(error != null && error.equals("1"))out.println("USERNAME, PASSWORD AND TYPE ARE REQUIRED");
+		else if(error != null && error.equals("2")) out.print("THAT USERNAME IS ALREADY TAKEN");
+		else if(error != null && error.equals("3")) out.println("AN UNEXPECTED ERROR OCCURED");
+	%>
 	<form method="post" action="Add_action.jsp" name="addUser">
 		<br>
 		<table style="text-align: left; width: 266px; height: 228px;"
@@ -40,15 +45,13 @@
 				<tr>
 					<td style="vertical-align: top;">Type<br>
 					</td>
-					<td style="vertical-align: top;"><input name="Type"></td>
-				</tr>
-				<tr>
-					<td style="vertical-align: top;">Status<br>
+					<td style="vertical-align: top;">
+						<select name="Type">
+							<option value = "U">U</option>
+							<option value = "A">A</option>
+						</select>
 					</td>
-					<td style="vertical-align: top;"><input name="Status">
-					</td>
 				</tr>
-
 				<tr>
 					<td style="vertical-align: top;"><input value="Add" name="Add"
 						type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

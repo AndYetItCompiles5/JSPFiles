@@ -33,5 +33,4 @@
 	else{
 		response.sendRedirect("index.jsp?Error=3");
 	}
-	
 %>

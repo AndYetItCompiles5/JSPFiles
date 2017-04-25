@@ -7,6 +7,14 @@
 <title>addUniv</title>
 </head>
 <body>
+	<%	
+		String error = request.getParameter("error");
+		if(error!=null && error.equals("1")) out.println("SCHOOL NAME IS REQUIRED");
+		else if(error!=null && error.equals("2")) out.println("THAT SCHOOL NAME IS TAKEN");
+		else if(error!=null && error.equals("3")) out.println("AN UNEXPECTED ERROR OCCURED");
+		%>
+		<br>
+		<br>
 	<form method="post" action="addUnivAction.jsp" name="addUniversity">
 		&nbsp;ADD UNIVERSITY<br>
 		<table style="text-align: left; width: 494px; height: 485px;"

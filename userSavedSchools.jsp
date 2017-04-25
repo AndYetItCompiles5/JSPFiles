@@ -8,44 +8,58 @@
 <body>
 
 
- 	<%
+	<%
 		DBController dbController = (DBController) session.getAttribute("dbController");
 		//Account currentU = dbController.getAccount(session.getAttribute("username").toString());
 		//String username = (String) session.getAttribute("username");
 		String username = session.getAttribute("username").toString();
-		
-		ArrayList<String> userSavedSchools = dbController.getUserSavedSchools(username);
-	%> 
-	<br>
-	<form action="?/?" name="viewUserSavedScools">
-		<br>
-		<table style="text-align: left; width: 153px; height: 60px;"
-			border="1" cellpadding="2" cellspacing="2">
-			<tbody>
-				<tr align="center">
-					<td colspan="3" rowspan="1" style="vertical-align: top;">Saved
-						Schools<br>
-					</td>
-				</tr>
-				<%
-					for (int i = 0; i < userSavedSchools.size(); i++) {
-				%>
 
-				<tr>
-					<td style="vertical-align: top;"><input name="remove"
-						value="Remove" type="button"><br>
-					<td style="vertical-align: top;"><% out.print(userSavedSchools.get(i)); %><br>
-					</td>
-					<td style="vertical-align: top;"><input name="edit"
-						value="Edit" type="button"><br>
-				</tr>
-				<%
-					}
-				
-				%>
-			</tbody>
-		</table>
-		<br>
-	</form>
+		ArrayList<String> userSavedSchools = dbController.getUserSavedSchools(username);
+	%>
+	<br>
+
+	<br>
+	<table style="text-align: left; width: 153px; height: 60px;" border="1"
+		cellpadding="2" cellspacing="2">
+		<tbody>
+			<tr align="center">
+				<td colspan="3" rowspan="1" style="vertical-align: top;">Saved
+					Schools<br>
+				</td>
+			</tr>
+			<%
+				for (int i = 0; i < userSavedSchools.size(); i++) {
+			%>
+
+			<tr>
+				<td style="vertical-align: top;">
+					<form method="post" action="DeleteUserSavedSchool.jsp"
+						name="Delete">
+						<input type="submit" name="Delete" value="Delete"
+							onClick="return confirmDelete()"> <input name="Username"
+							value="" type="hidden"> <input type="hidden"
+							name="schoolName" value="<%=userSavedSchools.get(i)%>">
+					</form>
+				</td>
+				<td style="vertical-align: top;">
+					<%
+						out.print(userSavedSchools.get(i));
+					%><br>
+				</td>
+
+				<td style="vertical-align: top;">
+					<form method="post" action="viewSchool.jsp" name="View">
+						<input type="submit" name="View" value="View"> <input
+							type="hidden" name="schoolName"
+							value="<%=userSavedSchools.get(i)%>">
+					</form>
+			</tr>
+			<%
+				}
+			%>
+		</tbody>
+	</table>
+	<br>
+
 </body>
 </html>

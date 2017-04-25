@@ -26,8 +26,11 @@
 	if(!request.getParameter("emp5").equals("")) newEmp.add(request.getParameter("emp5"));
 	
 	
-	dbController.addUniversity(name,state,location,control,numStudents,percentFemale,satVerbal,satMath,expenses,perFA,numApplicants,percentAdmitted,
-			percentEnrolled,aScale,sScale,lScale,newEmp);
+	int value = dbController.addUniversity(name,state,location,control,numStudents,percentFemale,satVerbal,satMath,expenses,perFA,
+			numApplicants,percentAdmitted,percentEnrolled,aScale,sScale,lScale,newEmp);
 	
-	response.sendRedirect("manageUniv.jsp");
+	if(value == 0) response.sendRedirect("manageUniv.jsp");
+	else if (value == 1) response.sendRedirect("addUniv.jsp?error=1");
+	else if (value == 2) response.sendRedirect("addUniv.jsp?error=2");
+	else response.sendRedirect("addUniv.jsp?error=3");
 	%>

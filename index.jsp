@@ -6,11 +6,16 @@
 <body>
 	<%
 		String anyErrors = request.getParameter("Error");
-		if (anyErrors != null && anyErrors.equals("1")) {
-			out.println("USER IS DEACTIVATED");
-		} else if (anyErrors != null && anyErrors.equals("2")) {
-			out.println("USERNAME OR PASSWORD IS INVALID");
-		} else if (anyErrors != null && anyErrors.equals("3")){
+		if (anyErrors != null && anyErrors.equals("1")) { 
+		%>
+			<script type="text/javascript">
+			alert("You are deactivated");
+			</script> <%
+		} else if (anyErrors != null && anyErrors.equals("2")) { %>
+			<script type="text/javascript">
+			alert("Username or password is invalid");
+			</script>
+		<% } else if (anyErrors != null && anyErrors.equals("3")){
 			out.println("SOMETHING WENT WRONG");
 		}
 		else if(anyErrors != null && anyErrors.equals("4")){

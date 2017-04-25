@@ -20,7 +20,7 @@
 	
 	University univ = dbController.getUniversity(name);
 	
-	ArrayList<String> oldEmp = univ.getEmphases();
+	ArrayList<String> oldEmp = dbController.getEmphases(name);
 	ArrayList<String> newEmp = new ArrayList<String>();
 	if(!request.getParameter("emp1").equals("")) newEmp.add(request.getParameter("emp1"));
 	if(!request.getParameter("emp2").equals("")) newEmp.add(request.getParameter("emp2"));

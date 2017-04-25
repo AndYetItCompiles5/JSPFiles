@@ -2,9 +2,10 @@
 <%@include file="verifyLogin.jsp"%>
 
 <% UserUI userUI = (UserUI) session.getAttribute("userUI");
+DBController db = (DBController) session.getAttribute("dbController");
 	String schoolName = request.getParameter("schoolName");
 	University univ = userUI.viewSchoolInfo(schoolName);
-	ArrayList<String> emphases = univ.getEmphases();
+	ArrayList<String> emphases = db.getEmphases(schoolName);
 
 %>
 <html>

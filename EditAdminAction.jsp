@@ -5,7 +5,6 @@
 <%
 	AdminUI adminUI = (AdminUI) session.getAttribute("adminUI");
 	DBController dbController = (DBController) session.getAttribute("dbController");
-
 	String specificUsername = request.getParameter("Username");
 	Account specificUser = dbController.getAccount(specificUsername);
 	String fName = request.getParameter("FirstName");
@@ -13,6 +12,7 @@
 	String uName = request.getParameter("Username");
 	String password = request.getParameter("Password");
 	char type = request.getParameter("Type").charAt(0);
-	dbController.editAccount(fName, lName, uName, password, type, 'Y');
+	char status = request.getParameter("Status").charAt(0);
+	dbController.editAccount(fName, lName, uName, password, type, status);
 	response.sendRedirect("ManageUsers.jsp");
 %>

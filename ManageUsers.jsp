@@ -30,12 +30,13 @@
 		<tbody>
 			<tr align="center">
 
-				<td colspan="10" rowspan="1" style="vertical-align: top;"><a
-					href="Add.jsp">ADD A USER</a></td>
+				<td colspan="9" rowspan="1" style="vertical-align: top;">
+				<a href="Add.jsp">ADD A USER</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="adminMenu.jsp">BACK TO MENU</a>
+				</td>
 
 			</tr>
 			<tr>
-				<td style="vertical-align: top;"></td>
 				<td style="vertical-align: top;"></td>
 				<td style="vertical-align: top;"></td>
 				<td style="vertical-align: top; text-align: center;">First</td>
@@ -45,6 +46,7 @@
 				<td style="vertical-align: top; text-align: center;">Type</td>
 				<td style="vertical-align: top; text-align: center;">Status</td>
 				<td style="vertical-align: top;"></td>
+
 			</tr>
 			<% for(int i = 0; i<allUsers.length; i++){ %>
 			<tr>
@@ -55,12 +57,11 @@
 					</form>
 				</td>
 				<td style="vertical-align: top;">
-					<form method="post" action="EditAdmin.jsp" name="Edit">
+					<form method="post" action="Edit.jsp" name="Edit">
 						<input name="Edit" value="Edit" type="submit"> <input
 							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
 					</form>
 				</td>
-				<td style="vertical-align: top;"></td>
 				<td style="vertical-align: top;"><%out.print(allUsers[i][0]);%></td>
 				<td style="vertical-align: top;"><%out.print(allUsers[i][1]);%></td>
 				<td style="vertical-align: top;"><%out.print(allUsers[i][2]);%></td>

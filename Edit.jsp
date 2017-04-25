@@ -10,12 +10,13 @@
 	<br>
 
 	<%
-		UserController uc = (UserController) session.getAttribute("sess");
+		AdminUI uc = (AdminUI) session.getAttribute("adminUI");
+		DBController db = (DBController) session.getAttribute("dbController");
 		String specificUsername = request.getParameter("Username");
-		User specificUser = uc.getSpecificUser(specificUsername);
+		Account specificUser = db.getAccount(specificUsername);
 		out.println("Edit user : " + request.getParameter("Username"));
 	%>
-	<form method="post" action="Edit_action.jsp" name="editUser">
+	<form method="post" action="EditAdminAction.jsp" name="editUser">
 		<br>
 		<table style="text-align: left; width: 266px; height: 228px;"
 			border="1">
@@ -24,14 +25,14 @@
 					<td style="vertical-align: top;">First Name<br>
 					</td>
 					<td style="vertical-align: top;"><input name="FirstName"
-						value="<%out.print(specificUser.getfName());%>"><br></td>
+						value="<%out.print(specificUser.getFirstName());%>"><br></td>
 				</tr>
 				<tr>
 				<tr>
 					<td style="vertical-align: top;">Last Name<br>
 					</td>
 					<td style="vertical-align: top;"><input name="LastName"
-						value="<%out.print(specificUser.getlName());%>"><br></td>
+						value="<%out.print(specificUser.getLastName());%>"><br></td>
 				</tr>
 				<tr>
 					<td style="vertical-align: top;">Username<br>
@@ -48,19 +49,27 @@
 				<tr>
 					<td style="vertical-align: top;">Type<br>
 					</td>
-					<td style="vertical-align: top;"><input name="Type"
-						value="<%out.print(specificUser.getType());%>"></td>
+					<td style="vertical-align: top;">
+						<select name="Type">
+							<option value = "<%= specificUser.getType()%>"><%= specificUser.getType()%></option>
+							<option value = "<%= specificUser.getOppositeType()%>"><%= specificUser.getOppositeType()%></option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td style="vertical-align: top;">Status<br>
 					</td>
-					<td style="vertical-align: top;"><input name="Status"
-						value="<%out.print(specificUser.getStatus());%>"></td>
+					<td style="vertical-align: top;">
+						<select name="Status">
+							<option value = "<%= specificUser.getStatus()%>"><%= specificUser.getStatus()%></option>
+							<option value = "<%= specificUser.getOppositeStatus()%>"><%= specificUser.getOppositeStatus()%></option>
+						</select>
+					</td>
 				</tr>
 
 				<tr>
-					<td style="vertical-align: top;"><input value="Edit"
-						name="Edit" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td style="vertical-align: top;"><input value="Edit" action="EditAdminAction.jsp"
+						name="Edit" type="submit"></td>
 					<td style="vertical-align: top;"><input value="Reset"
 						name="Reset" type="reset"></td>
 				</tr>

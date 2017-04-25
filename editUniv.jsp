@@ -99,8 +99,8 @@
 					</td>
 				</tr>
 				
-				<% 	
-					ArrayList<String> emp = school.getEmphases();
+				 <% 	
+					ArrayList<String> emp = dbController.getEmphases(school.getName());
 					String emp1 = "";
 					String emp2 = "";
 					String emp3 = "";

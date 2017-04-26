@@ -2,7 +2,7 @@
 <html>
 <head>
 <%@include file="verifyLogin.jsp"%>
-<title>Edit User Form</title>
+<title></title>
 </head>
 <body>
 	<br>

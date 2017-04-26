@@ -10,7 +10,7 @@
 	<%	
 		String error = request.getParameter("error");
 		if(error!=null && error.equals("1")) out.println("SCHOOL NAME IS REQUIRED");
-		else if(error!=null && error.equals("2")) out.println("THAT SCHOOL NAME IS TAKEN");
+		else if(error!=null && error.equals("2")) out.println("SCHOOL NAME IS TAKEN");
 		else if(error!=null && error.equals("3")) out.println("AN UNEXPECTED ERROR OCCURED");
 		%>
 		<br>

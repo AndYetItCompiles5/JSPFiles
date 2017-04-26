@@ -2,10 +2,10 @@
 <html>
 <head>
 <%@include file="verifyLogin.jsp"%>
-<title>Edit User Form</title>
+<title></title>
 </head>
 <body>
-	<br> Edit User form:
+	<br> 
 	<br>
 	<br>
 
@@ -14,7 +14,7 @@
 		DBController db = (DBController) session.getAttribute("dbController");
 		String specificUsername = request.getParameter("Username");
 		Account specificUser = db.getAccount(specificUsername);
-		out.println("Edit user : " + request.getParameter("Username"));
+		out.println("Edit User : " + request.getParameter("Username"));
 	%>
 	<form method="post" action="EditAdminAction.jsp" name="editUser">
 		<br>

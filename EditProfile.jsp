@@ -14,7 +14,7 @@
 		DBController dbController = (DBController) session.getAttribute("dbController");
 		String specificUsername = session.getAttribute("username").toString();
 		Account specificUser = dbController.getAccount(specificUsername);
-		out.println("Edit user : " + specificUsername);
+		out.println("Edit User : " + specificUsername);
 	%>
 	<form method="post" action="Edit_action.jsp" name="editUser">
 		<br>

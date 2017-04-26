@@ -9,7 +9,7 @@
 <body>
 <br>
 <%
-    out.println("Edit user : " + "calseth"); //request.getParameter("Username"));
+    out.println("Edit User : " + "calseth"); //request.getParameter("Username"));
 	DBController dbController = new DBController();
 	// will we have a session attribute for Username?
 	//String username = (String)session.getAttribute("Username");

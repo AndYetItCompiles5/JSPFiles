@@ -215,7 +215,14 @@
 					School Details</td>
 			</tr>
 			
-				<% for (String school : listSchools) {
+				<% if(listSchools.isEmpty()){
+					%><script type="text/javascript">
+					
+					alert("Nothing was found, please try different criteria"); 
+					window.location.href = "Search.jsp";
+					</script>
+				<% }
+				for (String school : listSchools) {
 			%>
 			<tr>
 				<td style="vertical-align: top;">

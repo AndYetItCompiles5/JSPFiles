@@ -11,10 +11,13 @@
 		<script type="text/javascript">
 	
 		alert("School could not be saved"); 
+		window.location.href = "Search.jsp";
 		</script>
+		
 	<%
 	}
 	else{
 	response.sendRedirect("userMenu.jsp");
 	}
+	//response.sendRedirect("Search.jsp");
 %>

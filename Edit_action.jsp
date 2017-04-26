@@ -12,7 +12,18 @@
 	String lName = request.getParameter("LastName");
 	String uName = request.getParameter("Username");
 	String password = request.getParameter("Password");
-	char type = request.getParameter("Type").charAt(0);
-	dbController.editAccount(fName, lName, uName, password, type, 'Y');
-	response.sendRedirect("userMenu.jsp");
+	if(password.equals("")){
+		%><script type="text/javascript">
+		
+		alert("Password cannot be empty"); 
+		window.location.href = "EditProfile.jsp";
+		</script>
+	<% }
+	else
+	{
+		char type = request.getParameter("Type").charAt(0);
+		dbController.editAccount(fName, lName, uName, password, type, 'Y');
+		response.sendRedirect("userMenu.jsp");
+
+	}
 %>

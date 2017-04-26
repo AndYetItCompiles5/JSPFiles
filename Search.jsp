@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
@@ -134,6 +135,8 @@
 		<br> <br> <input name="submitResults"
 			value="Search For Schools" type="submit">&nbsp;&nbsp;&nbsp; <input
 			name="searchReset" value="Reset Form" type="reset"><br>
+			&nbsp;
+			<a href="userMenu.jsp">BACK TO MENU</a>
 	</form>
 	<br>
 	<br>

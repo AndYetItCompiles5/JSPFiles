@@ -129,10 +129,15 @@
 						<input name="emp5" value="<%=emp5%>"><br>
 					</td>
 				</tr>
+				<script>
+					function confirmEdit(){
+						 return confirm("Are you sure you want to edit this account with the information provided?");
+						}
+					</script>
 				<!-- end of emphases -->
 				
 				<tr>
-					<td style="vertical-align: top;"><input value="Reset"
+					<td style="vertical-align: top;"><input value="Reset" onClick="return confirmEdit()"
 						name="Reset" type="reset"><br></td>
 					<td style="vertical-align: top;"><input name="submit"
 						value="Submit" type="submit"><br></td>

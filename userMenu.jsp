@@ -13,5 +13,6 @@
 	<br>
 	<a href="EditProfile.jsp">Manage My Profile</a>&nbsp;
 	<br>
+	<a href="logout_action.jsp">Logout</a><br>
 </body>
 </html>

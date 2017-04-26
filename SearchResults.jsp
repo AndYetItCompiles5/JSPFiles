@@ -176,19 +176,19 @@
 				}
 
 				ArrayList<String> emphases = new ArrayList<String>();
-				if (request.getParameter("emphases1") != "") {
+				if (request.getParameter("emphases1").length() != 0) {
 					emphases.add(request.getParameter("emphases1"));
 				}
-				if (request.getParameter("emphases2") != "") {
+				if (request.getParameter("emphases2").length() != 0) {
 					emphases.add(request.getParameter("emphases2"));
 				}
-				if (request.getParameter("emphases3") != "") {
+				if (request.getParameter("emphases3").length() != 0) {
 					emphases.add(request.getParameter("emphases3"));
 				}
-				if (request.getParameter("emphases4") != "") {
+				if (request.getParameter("emphases4").length() != 0) {
 					emphases.add(request.getParameter("emphases4"));
 				}
-				if (request.getParameter("emphases5") != "") {
+				if (request.getParameter("emphases5").length() != 0) {
 					emphases.add(request.getParameter("emphases5"));
 				}
 				if(emphases.isEmpty()){
@@ -249,6 +249,5 @@
 
 		</tbody>
 	</table>
->>>>>>> 0f5e44d0d76a20016b071e73d6842d613d2dcc72
 </body>
 </html>

@@ -120,7 +120,7 @@ DBController db = (DBController) session.getAttribute("dbController");
 				<td style="vertical-align: top;">EMPHASES<br>
 				</td>
 				<td style="vertical-align: top;"><input readonly="readonly"
-					name="emphases" value="<% emphases.get(i); %>"><br></td>
+					name="emphases" value="<%= emphases.get(i) %>"><br></td>
 			</tr>
 			<% }%>
 		</tbody>

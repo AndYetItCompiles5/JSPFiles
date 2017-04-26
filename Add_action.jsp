@@ -1,5 +1,6 @@
 
 <%@page language="java" import="java.util.*,Project.*"%>
+<%@include file="verifyLogin.jsp"%>
 <%
 	UserFuncController uc = (UserFuncController)session.getAttribute("sess");
 	DBController dbController = (DBController) session.getAttribute("dbController");

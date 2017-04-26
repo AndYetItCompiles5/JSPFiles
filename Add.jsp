@@ -1,10 +1,10 @@
-
+<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
-<title>Add User Form</title>
+<title></title>
 </head>
 <body>
-	<br> Add User form:
+	<br> 
 	<br>
 	<br>
 	<% 	

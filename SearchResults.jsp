@@ -1,6 +1,7 @@
 <%@ page import="Project.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
@@ -249,6 +250,6 @@
 
 		</tbody>
 	</table>
->>>>>>> 0f5e44d0d76a20016b071e73d6842d613d2dcc72
+	<a href="adminMenu.jsp">BACK TO MENU</a>
 </body>
 </html>

@@ -14,6 +14,8 @@ DBController db = (DBController) session.getAttribute("dbController");
 <title>viewSchool.html</title>
 </head>
 <body>
+	<a href="SaveAction.jsp"><b>Save School</b></a><br><br>
+	<a href="userMenu.jsp">BACK TO MENU</a>
 	<form method="get" action="viewSchool.html" name="viewSchool"></form>
 	<br>
 	<table style="text-align: left; width: 686px; height: 497px;"

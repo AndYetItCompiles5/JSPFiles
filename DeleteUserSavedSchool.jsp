@@ -1,4 +1,4 @@
-
+<%@include file="verifyLogin.jsp"%>
 <%@page language="java" import="Project.*,java.util.*"%>
 
 <%

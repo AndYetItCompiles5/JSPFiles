@@ -1,6 +1,7 @@
 <%@ page import="Project.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
@@ -8,9 +9,11 @@
 </head>
 <% 
 	DBController dbController = new DBController();
-	ArrayList<String> allSchools = dbController.getAllUniversities();%>
+	ArrayList<String> allSchools = dbController.getAllUniversities();
+	 %>
 <body>
 		<a href="addUniv.jsp"><b>Add New University</b></a><br><br>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 		<table style="text-align: left; width: 1553px; height: 324px;"
 			border="1" cellpadding="2" cellspacing="2">
 			<tbody>
@@ -76,6 +79,11 @@
 					<td style="vertical-align: top;"><br>
 					<form method="post" action="editUniv.jsp" name="Edit">
 						<input name="Edit" value="Edit" type="submit"> 
+						<input name="schoolName" value="<%=schoolName%>" type="hidden">
+					</form>
+					
+					<form method="post" action="deleteUniv.jsp" name="Delete">
+						<input name="Delete" value="Delete" type="submit"> 
 						<input name="schoolName" value="<%=schoolName%>" type="hidden">
 					</form>
 					</td>

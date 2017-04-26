@@ -8,6 +8,7 @@
 	<br>
 	<br>
 	<br>
+	
 
 	<%
 		UserUI userUI = (UserUI) session.getAttribute("userUI");
@@ -46,6 +47,11 @@
 					<td style="vertical-align: top;"><input name="Password"
 						value="<%out.print(specificUser.getPassword());%>"></td>
 				</tr>
+				<script>
+					function confirmEdit(){
+						 return confirm("Are you sure you want to edit this account with the information provided?");
+						}
+					</script>
 				<tr>
 					<td style="vertical-align: top;">Type<br>
 					</td>
@@ -53,7 +59,7 @@
 						value="<%out.print(specificUser.getType());%>" readonly></td>
 
 				<tr>
-					<td style="vertical-align: top;"><input value="Edit User"
+					<td style="vertical-align: top;"><input value="Edit User" onClick="return confirmEdit()"
 						name="Edit" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td style="vertical-align: top;"><input value="Reset"
 						name="Reset" type="reset"></td>
@@ -61,6 +67,7 @@
 			</tbody>
 		</table>
 		<br>
+		<a href="userMenu.jsp">BACK TO MENU</a>
 	</form>
 	<br>
 </body>

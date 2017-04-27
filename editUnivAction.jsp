@@ -47,3 +47,4 @@
 	
 	response.sendRedirect("manageUniv.jsp");
 	%>
+	

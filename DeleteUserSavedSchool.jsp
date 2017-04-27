@@ -10,3 +10,4 @@
 	dbController.removeSchool(username, schoolToRemove);
 	response.sendRedirect("userSavedSchools.jsp");
 %>
+

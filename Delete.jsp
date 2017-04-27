@@ -8,3 +8,4 @@ DBController dbController = (DBController) session.getAttribute("dbController");
    dbController.deleteUser(specificUsername);
    response.sendRedirect("ManageUsers.jsp");
 %>
+

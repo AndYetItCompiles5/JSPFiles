@@ -9,7 +9,6 @@
 	<br>
 	<br>
 	
-
 	<%
 		UserUI userUI = (UserUI) session.getAttribute("userUI");
 		DBController dbController = (DBController) session.getAttribute("dbController");

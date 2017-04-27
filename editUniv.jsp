@@ -147,6 +147,5 @@
 		<br>
 		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
-
 </body>
 </html>

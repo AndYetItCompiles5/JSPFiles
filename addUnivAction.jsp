@@ -44,3 +44,4 @@
 	else if (value == 2) response.sendRedirect("addUniv.jsp?error=2");
 	else response.sendRedirect("addUniv.jsp?error=3");
 	%>
+	

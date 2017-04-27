@@ -1,13 +1,13 @@
 <%@ page import="Project.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <title>SearchResults</title>
 </head>
 <%
+				String name = "-1";
 				String state = "-1";
 				String location = "-1";
 				String control = "-1";
@@ -39,19 +39,24 @@
 				SearchController sController = new SearchController();
 				UserUI userUI = (UserUI) session.getAttribute("userUI");
 				AccountController aController = (AccountController) session.getAttribute("aController");
+				AccountController aController2 = (AccountController) session.getAttribute("aController2");
 				Set<String> listSchools = new HashSet<String>();
-				String name = request.getParameter("schoolName");
-				if (request.getParameter("state") == null) {
+				if (request.getParameter("schoolName").isEmpty()) {
+					name = "-1";
+				} else {
+					name = request.getParameter("schoolName");
+				}
+				if (request.getParameter("state").isEmpty()) {
 					state = "-1";
 				} else {
 					state = request.getParameter("state");
 				}
-				if (request.getParameter("location") == null) {
+				if (request.getParameter("location").isEmpty()) {
 					location = "-1";
 				} else {
 					location = request.getParameter("location");
 				}
-				if (request.getParameter("control") == null) {
+				if (request.getParameter("control").isEmpty()) {
 					control = "-1";
 				} else {
 					control = request.getParameter("control");
@@ -208,9 +213,10 @@
 		<div style="text-align: center;"></div>
 	<table style="text-align: left; width: 100%;" border="1">
 		<tbody>
-			<tr>
+			<tr><%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
 				<td style="text-align: center; width: 552px;"><br> Save
 					School to School List</td>
+					<%} %>
 				<td style="text-align: center; width: 552px;"><br>School
 					Name</td>
 				<td style="text-align: center; width: 552px;"><br>View
@@ -227,7 +233,7 @@
 				for (String school : listSchools) {
 			%>
 			<tr>
-			<% if(!aController.getLoggedIn().equals("guest")){
+			<% if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){
 			%>
 				<td style="vertical-align: top;">
 					<form method="post" action="SaveAction.jsp" name="Save">
@@ -254,6 +260,6 @@
 
 		</tbody>
 	</table>
-	<a href="adminMenu.jsp">BACK TO MENU</a>
+	<a href="Search.jsp">BACK TO MENU</a>
 </body>
 </html>

@@ -1,9 +1,10 @@
-<%@page language="java" import="java.util.*"%>
-<%@include file="verifyLogin.jsp"%>
+<%@page language="java" import="Project.*,java.util.*"%>
+
 
 <%
 	UserUI userUI = (UserUI) session.getAttribute("userUI");
 	DBController db = (DBController) session.getAttribute("dbController");
+	AccountController aController2 = (AccountController) session.getAttribute("aController2");
 	String schoolName = request.getParameter("schoolName");
 	University univ = userUI.viewSchoolInfo(schoolName);
 	ArrayList<String> emphases = db.getEmphases(schoolName);
@@ -14,8 +15,10 @@
 <title>viewSchool.html</title>
 </head>
 <body>
+<%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
 	<a href="SaveAction.jsp"><b>Save School</b></a><br><br>
-	<a href="userMenu.jsp">BACK TO MENU</a>
+	<%} %>
+	<a href="Search.jsp">BACK TO MENU</a>
 	<form method="get" action="viewSchool.html" name="viewSchool"></form>
 	<br>
 	<table style="text-align: left; width: 686px; height: 497px;"
@@ -195,12 +198,13 @@
 								type="hidden" name="schoolName"
 								value="<%=relatedSchools.get(i)%>">
 						</form>
-
+						<%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
 						<form method="post" action="SaveAction.jsp" name="Save">
 							<input name="Save" value="Save" type="submit"> <input
 								name="schoolName" value="<%=relatedSchools.get(i)%>"
 								type="hidden">
 						</form>
+						<%} %>
 					</td>
 				</tr>
 

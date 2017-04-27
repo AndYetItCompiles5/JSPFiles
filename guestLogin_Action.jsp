@@ -6,12 +6,11 @@
 	AdminUI adminUI = new AdminUI();
 	AccountController aController = new AccountController();
 	DBController dbController = new DBController();
-	String name = "guest";
 		session.setAttribute("userUI", userUI);
-		session.setAttribute("aController", aController);
+		session.setAttribute("aController2", aController);
 		session.setAttribute("loginUI", loginUI);
 		session.setAttribute("adminUI", adminUI);
 		session.setAttribute("dbController", dbController);
-		aController.setLoggedIn(name);
-		response.sendRedirect("Search.jsp");
+		aController.loginGuest();
+		response.sendRedirect("guestMenu.jsp");
 %>

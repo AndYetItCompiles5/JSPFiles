@@ -155,6 +155,7 @@
 				<td style="vertical-align: top;">EMPHASES<br>
 				</td>
 
+
 				<td style="vertical-align: top;">
 					<%
 						for (int i = 0; i < emphases.size(); i++) {
@@ -165,6 +166,7 @@
  	}
  %>
 				
+
 		</tbody>
 	</table>
 	<br>

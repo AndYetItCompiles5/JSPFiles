@@ -1,4 +1,5 @@
-<%@page language="java" import="java.util.*,Project.*"%>
+
+<%@page language="java" import="java.util.*,Project.*,java.io.*"%>
 <%@include file="verifyLogin.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,6 +17,8 @@
 		String username = session.getAttribute("username").toString();
 
 		ArrayList<String> userSavedSchools = dbController.getUserSavedSchools(username);
+		String jspPath = application.getRealPath("/");
+		System.out.println(jspPath);
 	%>
 	<br>
 
@@ -47,9 +50,8 @@
 					</form>
 				</td>
 				<td style="vertical-align: top;">
-					<%
-						out.print(userSavedSchools.get(i));
-					%><br>
+					<a href="<%= dbController.findWebsite(userSavedSchools.get(i)) %>"><%= userSavedSchools.get(i) %></a>
+					<br>
 				</td>
 
 				<td style="vertical-align: top;">

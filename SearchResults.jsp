@@ -38,6 +38,7 @@
 
 				SearchController sController = new SearchController();
 				UserUI userUI = (UserUI) session.getAttribute("userUI");
+				AccountController aController = (AccountController) session.getAttribute("aController");
 				Set<String> listSchools = new HashSet<String>();
 				String name = request.getParameter("schoolName");
 				if (request.getParameter("state") == null) {
@@ -226,12 +227,15 @@
 				for (String school : listSchools) {
 			%>
 			<tr>
+			<% if(!aController.getLoggedIn().equals("guest")){
+			%>
 				<td style="vertical-align: top;">
 					<form method="post" action="SaveAction.jsp" name="Save">
 						<input name="Save" value="Save" type="submit"> <input
 							name="schoolName" value="<%out.print(school);%>" type="hidden">
 					</form>
 				</td>
+				<% }%>
 				<td style="vertical-align: top;">
 					<%=
 						school

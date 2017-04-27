@@ -4,6 +4,7 @@
 	UserUI userUI = new UserUI();
 	LoginUI loginUI = new LoginUI();
 	AdminUI adminUI = new AdminUI();
+	AccountController aController = new AccountController();
 	DBController dbController = new DBController();
 	String uName = request.getParameter("Username");
 	String pass = request.getParameter("Password");
@@ -14,6 +15,7 @@
 		session.setAttribute("loginUI", loginUI);
 		session.setAttribute("adminUI", adminUI);
 		session.setAttribute("dbController", dbController);
+		session.setAttribute("aController", aController);
 		session.setAttribute("username",uName);
 		String loggedIn = loginUI.getLoggedIn();
 		loggedInStatus = dbController.getAccount(loggedIn).getType();

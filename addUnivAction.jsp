@@ -20,6 +20,14 @@
 	int sScale = Integer.parseInt(request.getParameter("qualitySocial"));
 	int lScale = Integer.parseInt(request.getParameter("qualityLife"));
 	
+	if(name.equals("")){
+		%><script type="text/javascript">
+		
+		alert("School name cannot be empty"); 
+		window.location.href = "addUniv.jsp";
+		</script>
+	<% }
+	
 	ArrayList<String> newEmp = new ArrayList<String>();
 	if(!request.getParameter("emp1").equals("")) newEmp.add(request.getParameter("emp1"));
 	if(!request.getParameter("emp2").equals("")) newEmp.add(request.getParameter("emp2"));

@@ -7,6 +7,7 @@
 <title>SearchResults</title>
 </head>
 <%
+				String name = "-1";
 				String state = "-1";
 				String location = "-1";
 				String control = "-1";
@@ -37,19 +38,25 @@
 
 				SearchController sController = new SearchController();
 				UserUI userUI = (UserUI) session.getAttribute("userUI");
+				AccountController aController = (AccountController) session.getAttribute("aController");
+				AccountController aController2 = (AccountController) session.getAttribute("aController2");
 				Set<String> listSchools = new HashSet<String>();
-				String name = request.getParameter("schoolName");
-				if (request.getParameter("state") == null) {
+				if (request.getParameter("schoolName").isEmpty()) {
+					name = "-1";
+				} else {
+					name = request.getParameter("schoolName");
+				}
+				if (request.getParameter("state").isEmpty()) {
 					state = "-1";
 				} else {
 					state = request.getParameter("state");
 				}
-				if (request.getParameter("location") == null) {
+				if (request.getParameter("location").isEmpty()) {
 					location = "-1";
 				} else {
 					location = request.getParameter("location");
 				}
-				if (request.getParameter("control") == null) {
+				if (request.getParameter("control").isEmpty()) {
 					control = "-1";
 				} else {
 					control = request.getParameter("control");
@@ -176,19 +183,19 @@
 				}
 
 				ArrayList<String> emphases = new ArrayList<String>();
-				if (request.getParameter("emphases1") != "") {
+				if (request.getParameter("emphases1").length() != 0) {
 					emphases.add(request.getParameter("emphases1"));
 				}
-				if (request.getParameter("emphases2") != "") {
+				if (request.getParameter("emphases2").length() != 0) {
 					emphases.add(request.getParameter("emphases2"));
 				}
-				if (request.getParameter("emphases3") != "") {
+				if (request.getParameter("emphases3").length() != 0) {
 					emphases.add(request.getParameter("emphases3"));
 				}
-				if (request.getParameter("emphases4") != "") {
+				if (request.getParameter("emphases4").length() != 0) {
 					emphases.add(request.getParameter("emphases4"));
 				}
-				if (request.getParameter("emphases5") != "") {
+				if (request.getParameter("emphases5").length() != 0) {
 					emphases.add(request.getParameter("emphases5"));
 				}
 				if(emphases.isEmpty()){
@@ -206,9 +213,10 @@
 		<div style="text-align: center;"></div>
 	<table style="text-align: left; width: 100%;" border="1">
 		<tbody>
-			<tr>
+			<tr><%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
 				<td style="text-align: center; width: 552px;"><br> Save
 					School to School List</td>
+					<%} %>
 				<td style="text-align: center; width: 552px;"><br>School
 					Name</td>
 				<td style="text-align: center; width: 552px;"><br>View
@@ -225,12 +233,15 @@
 				for (String school : listSchools) {
 			%>
 			<tr>
+			<% if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){
+			%>
 				<td style="vertical-align: top;">
 					<form method="post" action="SaveAction.jsp" name="Save">
 						<input name="Save" value="Save" type="submit"> <input
 							name="schoolName" value="<%out.print(school);%>" type="hidden">
 					</form>
 				</td>
+				<% }%>
 				<td style="vertical-align: top;">
 					<%=
 						school
@@ -249,6 +260,12 @@
 
 		</tbody>
 	</table>
->>>>>>> 0f5e44d0d76a20016b071e73d6842d613d2dcc72
+	<% if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){
+			%>
+	<a href="Search.jsp">BACK TO MENU</a>
+	<%} 
+	 else{%>
+		<a href="guestMenu.jsp">BACK TO MENU</a> 
+	<% }%>
 </body>
 </html>

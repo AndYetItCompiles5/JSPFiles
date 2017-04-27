@@ -1,5 +1,7 @@
 <%@ page import="Project.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="verifyLogin.jsp"%>
+
 <% 	DBController dbController = (DBController) session.getAttribute("dbController");
 	String name = request.getParameter("schoolName");
 	
@@ -23,6 +25,14 @@
 	int aScale = !request.getParameter("qualityAcademic").equals("") ? Integer.parseInt(request.getParameter("qualityAcademic")) : -1;
 	int sScale = !request.getParameter("qualitySocial").equals("") ? Integer.parseInt(request.getParameter("qualitySocial")) : -1;
 	int lScale = !request.getParameter("qualityLife").equals("") ? Integer.parseInt(request.getParameter("qualityLife")) : -1;
+	
+	if(name.equals("")){
+		%><script type="text/javascript">
+		
+		alert("School name cannot be empty"); 
+		window.location.href = "addUniv.jsp";
+		</script>
+	<% }
 	
 	ArrayList<String> newEmp = new ArrayList<String>();
 	if(!request.getParameter("emp1").equals("")) newEmp.add(request.getParameter("emp1"));
@@ -54,3 +64,4 @@
 	else if (value == 2) response.sendRedirect("addUniv.jsp?error=2");
 	else response.sendRedirect("addUniv.jsp?error=5");
 	%>
+

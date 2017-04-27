@@ -61,8 +61,10 @@
 			</tbody>
 		</table>
 		<br>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
 	<br>
 </body>
 </html>
+
 

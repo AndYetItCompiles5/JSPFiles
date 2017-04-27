@@ -1,6 +1,7 @@
 <%@ page import="Project.*, java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="verifyLogin.jsp"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
@@ -254,15 +255,21 @@ function isContNumber(evt){
 						<input name="emp10" value="<%=emp10%>"><br>
 					</td>
 				</tr>
+				<script>
+					function confirmAdd(){
+						 return confirm("Are you sure you want to add with these specifications?");
+						}
+					</script>
 				<!-- end of emphases -->
 				<tr>
 					<td style="vertical-align: top;"><input value="Reset"
 						name="Reset" type="reset"><br></td>
 					<td style="vertical-align: top;"><input name="submit"
-						value="Submit" type="submit"><br></td>
+						value="Submit" onClick="return confirmAdd()" type="submit"><br></td>
 				</tr>
 			</tbody>
 		</table>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
 </body>
 </html>

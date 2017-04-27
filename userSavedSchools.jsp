@@ -1,4 +1,6 @@
-<%@page language="java" import="java.util.*,Project.*"%>
+
+<%@page language="java" import="java.util.*,Project.*,java.io.*"%>
+<%@include file="verifyLogin.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,21 +32,24 @@
 			<%
 				for (int i = 0; i < userSavedSchools.size(); i++) {
 			%>
-
+				<script>
+					function confirmDelete(){
+						 return confirm("Are you sure you want to delete this school from your list?");
+						}
+					</script>
 			<tr>
 				<td style="vertical-align: top;">
-					<form method="post" action="DeleteUserSavedSchool.jsp"
+					<form method="post" onClick="return confirmDelete()" action="DeleteUserSavedSchool.jsp"
 						name="Delete">
 						<input type="submit" name="Delete" value="Delete"
-							onClick="return confirmDelete()"> <input name="Username"
+							> <input name="Username"
 							value="" type="hidden"> <input type="hidden"
 							name="schoolName" value="<%=userSavedSchools.get(i)%>">
 					</form>
 				</td>
 				<td style="vertical-align: top;">
-					<%
-						out.print(userSavedSchools.get(i));
-					%><br>
+					<a href="<%= dbController.findWebsite(userSavedSchools.get(i)) %>"><%= userSavedSchools.get(i) %></a>
+					<br>
 				</td>
 
 				<td style="vertical-align: top;">
@@ -60,6 +65,7 @@
 		</tbody>
 	</table>
 	<br>
+	<a href="userMenu.jsp">BACK TO MENU</a>
 
 </body>
 </html>

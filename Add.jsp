@@ -1,10 +1,10 @@
-
+<%@include file="verifyLogin.jsp"%>
 <html>
 <head>
-<title>Add User Form</title>
+<title></title>
 </head>
 <body>
-	<br> Add User form:
+	<br> 
 	<br>
 	<br>
 	<% 	
@@ -61,8 +61,10 @@
 			</tbody>
 		</table>
 		<br>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
 	<br>
 </body>
 </html>
+
 

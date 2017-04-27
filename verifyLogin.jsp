@@ -1,7 +1,7 @@
 <%@page language="java" import="Project.*"%>
 
-<%LoginUI loginUI = (LoginUI) session.getAttribute("loginUI"); 
-if(loginUI.getLoggedIn().equals("")){
+<%LoginUI LoginUI = (LoginUI) session.getAttribute("loginUI"); 
+if(LoginUI.getLoggedIn().equals("")){
 	response.sendRedirect("index.jsp?Error=4");
 	return;
 }%>

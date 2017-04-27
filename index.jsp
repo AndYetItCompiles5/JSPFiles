@@ -50,6 +50,7 @@
 			</tbody>
 		</table>
 		<br>
+		<a href="guestLogin_Action.jsp">Log in as Guest</a>
 	</form>
 	<br>
 </body>

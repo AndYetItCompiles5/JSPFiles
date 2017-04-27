@@ -7,14 +7,11 @@
 	DBController dbController = (DBController) session.getAttribute("dbController");
 
 	String specificUsername = request.getParameter("Username");
-	int result = dbController.deactivateUser(specificUsername);
-	if(result==1){
-		response.sendRedirect("ManageUsers.jsp?DeactivateError=1");
-	}
-	else if (result==2){
-		response.sendRedirect("ManageUsers.jsp?DeactivateError=2");
+	int result = dbController.reactivateUser(specificUsername);
+	if(result==0){
+	response.sendRedirect("ManageUsers.jsp");
 	}
 	else{
-		response.sendRedirect("ManageUsers.jsp");
+		response.sendRedirect("Search.jsp");
 	}
 %>

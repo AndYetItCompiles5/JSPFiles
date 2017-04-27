@@ -270,18 +270,23 @@ function isContNumber(evt){
 						<input name="emp10" value="<%=emp10%>"><br>
 					</td>
 				</tr>
+				<script>
+					function confirmEdit(){
+						 return confirm("Are you sure you want to edit this account with the information provided?");
+						}
+					</script>
 				<!-- end of emphases -->
 				
 				<tr>
-					<td style="vertical-align: top;"><input value="Reset"
+					<td style="vertical-align: top;"><input value="Reset" 
 						name="Reset" type="reset"><br></td>
-					<td style="vertical-align: top;"><input name="submit"
+					<td style="vertical-align: top;"><input name="submit" onClick="return confirmEdit()"
 						value="Submit" type="submit"><br></td>
 				</tr>
 			</tbody>
 		</table>
 		<br>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
-
 </body>
 </html>

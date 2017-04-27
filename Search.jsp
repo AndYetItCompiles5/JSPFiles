@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="Project.*"
+
+				%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <title>schoolSearchMenu</title>
 </head>
+<%
+AccountController aController = (AccountController) session.getAttribute("aController");
+AccountController aController2 = (AccountController) session.getAttribute("aController2");
+if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
+<a href="userMenu.jsp">BACK TO MENU</a>
+<%} %>
 <body>
 	<form method="post" action="SearchResults.jsp" name="SearchMenu">
 		&nbsp; <b>Search Menu</b><br>   
@@ -134,6 +142,7 @@
 		<br> <br> <input name="submitResults"
 			value="Search For Schools" type="submit">&nbsp;&nbsp;&nbsp; <input
 			name="searchReset" value="Reset Form" type="reset"><br>
+			&nbsp;
 	</form>
 	<br>
 	<br>

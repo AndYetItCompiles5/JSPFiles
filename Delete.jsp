@@ -1,4 +1,4 @@
-
+<%@include file="verifyLogin.jsp"%>
 <%@page language="java" import="Project.*,java.util.*"%>
 
 <%
@@ -8,3 +8,4 @@ DBController dbController = (DBController) session.getAttribute("dbController");
    dbController.deleteUser(specificUsername);
    response.sendRedirect("ManageUsers.jsp");
 %>
+

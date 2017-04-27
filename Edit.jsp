@@ -66,9 +66,15 @@
 						</select>
 					</td>
 				</tr>
+				
+				<script>
+					function confirmEdit(){
+						 return confirm("Are you sure you want to edit this account with the information provided?");
+						}
+					</script>
 
 				<tr>
-					<td style="vertical-align: top;"><input value="Edit" action="EditAdminAction.jsp"
+					<td style="vertical-align: top;"><input value="Edit" onClick="return confirmEdit()" action="EditAdminAction.jsp" 
 						name="Edit" type="submit"></td>
 					<td style="vertical-align: top;"><input value="Reset"
 						name="Reset" type="reset"></td>
@@ -76,8 +82,10 @@
 			</tbody>
 		</table>
 		<br>
+		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
 	<br>
 </body>
 </html>
+
 

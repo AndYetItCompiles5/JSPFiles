@@ -50,18 +50,33 @@
 			</tr>
 			<% for(int i = 0; i<allUsers.length; i++){ %>
 			<tr>
+			<%
+				if(allUsers[i][5].charAt(0)=='Y'||allUsers[i][5].charAt(0)=='y'){
+			%>
 			<td style="vertical-align: top;">
 					<form method="post" action="Deactivate_action.jsp" name="Deactivate">
 						<input name="Deactivate" value="Deactivate" type="submit"> <input
 							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
 					</form>
 				</td>
+				<% } 
+			
+				else{
+			%>
+			<td style="vertical-align: top;">
+					<form method="post" action="Reactivate_action.jsp" name="Reactivate">
+						<input name="Reactivate" value="Reactivate" type="submit"> <input
+							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
+					</form>
+				</td>
+				<%} %>
 				<td style="vertical-align: top;">
 					<form method="post" action="Edit.jsp" name="Edit">
 						<input name="Edit" value="Edit" type="submit"> <input
 							name="Username" value="<%out.print(allUsers[i][2]);%>" type="hidden">
 					</form>
 				</td>
+
 				<td style="vertical-align: top;"><%out.print(allUsers[i][0]);%></td>
 				<td style="vertical-align: top;"><%out.print(allUsers[i][1]);%></td>
 				<td style="vertical-align: top;"><%out.print(allUsers[i][2]);%></td>
@@ -71,7 +86,7 @@
 				<td style="vertical-align: top;">
 										<script>
 					function confirmDelete(){
-						 return confirm("Want to delete?");
+						 return confirm("Are you sure you want to delete this user?");
 						}
 					</script>
 					<form method="post" action="Delete.jsp" name="Delete">

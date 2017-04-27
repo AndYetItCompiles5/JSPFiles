@@ -17,8 +17,6 @@
 		String username = session.getAttribute("username").toString();
 
 		ArrayList<String> userSavedSchools = dbController.getUserSavedSchools(username);
-		String jspPath = application.getRealPath("/");
-		System.out.println(jspPath);
 	%>
 	<br>
 

@@ -18,7 +18,7 @@
 <%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
 	<a href="SaveAction.jsp"><b>Save School</b></a><br><br>
 	<%} %>
-	<a href="Search.jsp">BACK TO MENU</a>
+	<a href="userMenu.jsp">BACK TO MENU</a>
 	<form method="get" action="viewSchool.html" name="viewSchool"></form>
 	<br>
 	<table style="text-align: left; width: 686px; height: 497px;"

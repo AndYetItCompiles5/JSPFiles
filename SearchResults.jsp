@@ -260,6 +260,12 @@
 
 		</tbody>
 	</table>
+	<% if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){
+			%>
 	<a href="Search.jsp">BACK TO MENU</a>
+	<%} 
+	 else{%>
+		<a href="guestMenu.jsp">BACK TO MENU</a> 
+	<% }%>
 </body>
 </html>

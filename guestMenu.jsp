@@ -9,7 +9,7 @@ http-equiv="content-type">
 </head>
 <body>
 <a href="Search.jsp">Search for Universities</a><br><br>
-<a href="index.jsp">Login</a><br>
+<a href="guestLogout_Action.jsp">Login</a><br>
 <br>
 </body>
 </html>

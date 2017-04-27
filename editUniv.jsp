@@ -137,9 +137,9 @@
 				<!-- end of emphases -->
 				
 				<tr>
-					<td style="vertical-align: top;"><input value="Reset" onClick="return confirmEdit()"
+					<td style="vertical-align: top;"><input value="Reset" 
 						name="Reset" type="reset"><br></td>
-					<td style="vertical-align: top;"><input name="submit"
+					<td style="vertical-align: top;"><input name="submit" onClick="return confirmEdit()"
 						value="Submit" type="submit"><br></td>
 				</tr>
 			</tbody>

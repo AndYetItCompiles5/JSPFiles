@@ -167,6 +167,7 @@ select{
 				AccountController aController = (AccountController) session.getAttribute("aController");
 				AccountController aController2 = (AccountController) session.getAttribute("aController2");
 				Set<String> listSchools = new HashSet<String>();
+				try{
 				if (request.getParameter("schoolName").isEmpty()) {
 					name = "-1";
 				} else {
@@ -307,7 +308,10 @@ select{
 				} else {
 					lifeScaleHigh = 0;
 				}
-
+				}
+				catch(NumberFormatException e){
+					response.sendRedirect("Search.jsp?error=1");
+				}
 				ArrayList<String> emphases = new ArrayList<String>();
 				if (request.getParameter("emphases1").length() != 0) {
 					emphases.add(request.getParameter("emphases1"));
@@ -327,12 +331,16 @@ select{
 				if(emphases.isEmpty()){
 					emphases=null;
 				}
-
+				
+				
+				
 				listSchools = userUI.search(name, state, location, control, numStudentsLow,
 						numStudentsHigh, perFemaleLow, perFemaleHigh, satVerbalLow, satVerbalHigh, satMathLow, satMathHigh,
 						expensesLow, expensesHigh, perFALow, perFAHigh, numApplicantsLow, numApplicantsHigh, perAdmittedLow,
 						perAdmittedHigh, perEnrolledLow, perEnrolledHigh, academicScaleLow, academicScaleHigh,
 						socialScaleLow, socialScaleHigh, lifeScaleLow, lifeScaleHigh, emphases);
+				
+				
 				%>
 <body>
 	<ul>

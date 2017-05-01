@@ -129,6 +129,12 @@ select{
 }
 </style>
 <%
+String error = request.getParameter("error");
+if(error != null && error.equals("1")){%> 
+<script type="text/javascript">
+	alert("PLEASE ONLY USE NUMBERS FOR NUMERICAL FIELDS");
+</script>
+<%}
 AccountController aController = (AccountController) session.getAttribute("aController");
 AccountController aController2 = (AccountController) session.getAttribute("aController2");
 ArrayList<String> locations = new ArrayList<String>();

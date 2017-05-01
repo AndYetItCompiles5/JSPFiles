@@ -49,7 +49,7 @@ li a:hover {
 </style>
 <body>
 <ul>
-	<li><a href="adminMenu.jsp" class="active"><img border="0" alt="CMCadmin" src="g114.png" width="34" height="16"></a></li>
+	<li><a href="adminMenu.jsp" class="active"><img border="0" alt="CMCadmin" src="g60.png" width="34" height="16"></a></li>
 	<li><a href="Search.jsp">Search for Universities</a></li>
 	<li style="float:right"><a href="guestLogout_Action.jsp">Login</a></li>
 </ul>

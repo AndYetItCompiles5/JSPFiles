@@ -350,7 +350,7 @@ select{
 			<a href="userMenu.jsp"><img border="0" alt="CMCadmin" src="g114.png" width="34" height="16"></a> 
 		<%} 
 		else{ %>
-			<a href="guestMenu.jsp"><img border="0" alt="CMCadmin" src="g114.png" width="34" height="16"></a>
+			<a href="guestMenu.jsp"><img border="0" alt="CMCadmin" src="g60.png" width="34" height="16"></a>
 		<%}%>
 	</li>
 	<li><a href="Search.jsp" class="active">Search for Universities</a></li>

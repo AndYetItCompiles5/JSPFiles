@@ -13,9 +13,8 @@ table {
     width: 100%;
 }
 td:nth-child(even){
-	background-color: darkslategray;
-	color: white;
-	width:400px;
+	color: black;
+	width: 400px;
 }
 
 th {
@@ -34,7 +33,6 @@ td{
 	font-family: Verdana, Helvetica, sans-serif;
 	font-weight: bold;
 	background-color: #d1e0e0;
-	color: white;
     font-size: 14px;
     height:50px;
     width: 300px;
@@ -114,7 +112,7 @@ li a:hover {
 .name{
 	font-family: Verdana, Helvetica, sans-serif;
 	text-decoration: none;
-	color: white;
+	color: black;
 }
 .name:hover{
 	color: #666699;

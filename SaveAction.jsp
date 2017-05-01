@@ -9,7 +9,6 @@
 	boolean temp = userUI.saveSchool(session.getAttribute("username").toString(), schoolName);
 	if(temp==false){%>
 		<script type="text/javascript">
-	
 		alert("School is already saved"); 
 		window.location.href = "Search.jsp";
 		</script>
@@ -17,7 +16,7 @@
 	<%
 	}
 	else{
-	response.sendRedirect("userMenu.jsp");
+		response.sendRedirect("userMenu.jsp");
 	}
 
 %>

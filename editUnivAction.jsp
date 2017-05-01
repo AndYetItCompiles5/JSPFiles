@@ -56,7 +56,12 @@
 		newEmp.add(request.getParameter("emp9"));
 	if (!request.getParameter("emp10").equals(""))
 		newEmp.add(request.getParameter("emp10"));
-
+	
+	if(numStudents < -1 || numApplicants < -1 || expenses < -1){
+		response.sendRedirect("editUniv.jsp?schoolName=" + name + "&error=3");
+		return;
+	}
+	
 	if (percentFemale > 100 || (percentFemale < 0 && percentFemale != -1) || percentEnrolled > 100
 			|| (percentEnrolled < 0 && percentEnrolled != -1) || percentAdmitted > 100
 			|| (percentAdmitted < 0 && percentAdmitted != -1) || (perFA < 0 && perFA != -1) || perFA > 100) {

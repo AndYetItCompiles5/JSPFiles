@@ -18,10 +18,136 @@ function isContNumber(evt){
     var charCode = (evt.which) ? evt.which : event.keyCode;
     if (charCode > 31 && (charCode < 49  && charCode != 46 && charCode != 45 || charCode > 53) ) return false;
     return true;
-}	
+}
 </script>
+<style>
+	body{
+	background-color: ;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td:nth-child(even){
+	background-color: #d1e0e0;
+}
+
+th {
+	text-align: center;
+	vertical-align: bottom;
+	background-color: darkslategray;
+    color: white;
+    font-size: 20px;
+    font-family: Verdana, Helvetica, sans-serif;
+    height:60px;
+}
+td{
+	text-align: center;
+	vertical-align: bottom;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: darkslategray;;
+	color: white;
+    font-size: 14px;
+    height:50px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border:1px solid silver;
+}
+
+li {
+    float: left;
+    border-right:1px solid silver;
+}
+
+li:last-child {
+    border-right: none;
+    border-left: 1px solid silver;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: darkslategray;
+}
+input{
+	width: 80%;
+	padding: 3px 3px;
+	background-color: white;
+	border: none;
+	border-radius: 2px;
+	font-size: 14px;
+	}
+select{
+	width: 80%;
+	padding: 1px 1px;
+	border: none;
+    border-radius: 4px;
+    font-size: 14px;
+
+}
+.submitButton{
+	width: auto;
+	argin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1f2e2e;
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 0px;
+	
+}
+.submitButton:hover{
+	background-color: #344c4c;
+}
+.resetButton{
+	width: auto;
+	argin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #d1e0e0;
+    color: black;
+    font-family: Verdana, Helvetica, sans-serif;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 0px;
+}
+.resetButton:hover{
+	background-color: #1f2e2e;
+	color: white;
+}
+.header{
+	font-family: Verdana, Helvetica, sans-serif;
+	text-decoration: none;
+	font-size: 28px;
+}
+.name{
+	color: black;
+}
+</style>
 <%
-	DBController dbController = new DBController();
+	DBController dbController = (DBController) session.getAttribute("dbController");
 	University school = dbController.getUniversity(request.getParameter("schoolName"));
 	ArrayList<String> states = new ArrayList<String>();
 	ArrayList<String> locations = new ArrayList<String>();
@@ -34,6 +160,12 @@ function isContNumber(evt){
 			"South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
 	%>
 <body>
+	<ul>
+	<li><a href="adminMenu.jsp"><img border="0" alt="CMCadmin" src="g106.png" width="34" height="18"></a></li>
+  	<li><a href="manageUniv.jsp" class="active">Universities</a></li>
+  	<li><a href="ManageUsers.jsp">Users</a></li>
+ 	<li style="float:right"><a href="logout_action.jsp">Logout</a></li>
+ 	</ul>
 <% 
 	String error = request.getParameter("error");
 	if(error != null && error.equals("1")){%>
@@ -43,19 +175,26 @@ function isContNumber(evt){
 	<%}
 	if(error != null && error.equals("2")){%>
 		<script type="text/javascript">
-			alert("SAT SCORES MUST BE BETWEEN 200 AND 800 (-1 if unknown)");
+			alert("ALL PERCENTAGE FIELDS MUST BE BETWEEN 0 AND 100\n(-1 if unknown)");
 		</script>
-	<%} %>
-	<br>
+	<%}
+	if(error != null && error.equals("3")){%>
+		<script type="text/javascript">
+			alert("Number of Students, Number of Applicants, Expenses must be positive\n(-1 if unknown)");
+		</script>
+	<%}%>
 	<form method="post" action="editUnivAction.jsp" name="editUniversity">
-		&nbsp;EDIT UNIVERSITY<br>
+		&nbsp;<p class="header">Edit University</p>
 		<table style="text-align: left; width: 490px; height: 480px;"
 			border="1" cellpadding="2" cellspacing="2">
 			<tbody>
 				<tr>
 					<td style="vertical-align: top;">SCHOOL NAME<br>
 					</td>
-					<td style="vertical-align: top;"><input readonly="readonly" name="schoolName" value="<%=school.getName()%>"><br></td>
+					<td style="vertical-align: top;">
+					<input type="hidden" name="schoolName" value="<%=school.getName()%>">
+					<p class="name"><%=school.getName() %></p>
+					</td>
 				</tr>
 				<tr>
 					<td style="vertical-align: top;">STATE<br>
@@ -279,14 +418,13 @@ function isContNumber(evt){
 				
 				<tr>
 					<td style="vertical-align: top;"><input value="Reset" 
-						name="Reset" type="reset"><br></td>
+						name="Reset" type="reset" class="resetButton"><br></td>
 					<td style="vertical-align: top;"><input name="submit" onClick="return confirmEdit()"
-						value="Submit" type="submit"><br></td>
+						value="Submit" type="submit" class="submitButton"><br></td>
 				</tr>
 			</tbody>
 		</table>
 		<br>
-		<a href="adminMenu.jsp">BACK TO MENU</a>
 	</form>
 </body>
 </html>

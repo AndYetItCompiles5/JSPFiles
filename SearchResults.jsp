@@ -6,6 +6,132 @@
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <title>SearchResults</title>
 </head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+tr:nth-child(even){
+	background-color: #d1e0e0;
+}
+th {
+	text-align: center;
+	background-color: darkslategray;
+    color: white;
+    font-size: 20px;
+    font-family: Verdana, Helvetica, sans-serif;
+    height:60px;
+}
+td{
+	text-align: center;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	color: white;
+    font-size: 14px;
+    height:50px;
+}
+td:nth-child(even){
+	width: 250px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border:1px solid silver;
+}
+
+li {
+    float: left;
+    border-right:1px solid silver;
+}
+
+li:last-child {
+    border-right: none;
+    border-left: 1px solid silver;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: darkslategray;
+}
+input{
+	width: 60%;
+	padding: 3px 3px;
+	background-color: white;
+	border: none;
+	border-radius: 2px;
+	font-size: 14px;
+	}
+select{
+	width: 80%;
+	padding: 1px 1px;
+	border: none;
+    border-radius: 4px;
+    font-size: 14px;
+
+}
+.submitButton{
+	width: auto;
+	argin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1f2e2e;
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 0px;
+	
+}
+.submitButton:hover{
+	background-color: #344c4c;
+}
+.header{
+	font-family: Verdana, Helvetica, sans-serif;
+	text-decoration: none;
+	font-size: 28px;
+}
+.name{
+	text-align: center;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	color: black;
+    font-size: 16px;
+}
+.viewButton{
+	width: auto;
+	argin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #33334d;
+    color: white;
+    font-family: Verdana, Helvetica, sans-serif;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 0px;
+	
+}
+.viewButton:hover{
+	background-color: #52527a;
+}
+</style>
 <%
 				String name = "-1";
 				String state = "-1";
@@ -209,18 +335,42 @@
 						socialScaleLow, socialScaleHigh, lifeScaleLow, lifeScaleHigh, emphases);
 				%>
 <body>
-<b>Search Results:</b>
-		<div style="text-align: center;"></div>
-	<table style="text-align: left; width: 100%;" border="1">
+	<ul>
+	<li>
+	<% 
+		if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
+			<a href="userMenu.jsp"><img border="0" alt="CMCadmin" src="g114.png" width="34" height="16"></a> 
+		<%} 
+		else{ %>
+			<a href="guestMenu.jsp"><img border="0" alt="CMCadmin" src="g114.png" width="34" height="16"></a>
+		<%}%>
+	</li>
+	<li><a href="Search.jsp" class="active">Search for Universities</a></li>
+	<% 
+		if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
+	<li><a href="userSavedSchools.jsp">My Saved Schools</a></li>
+	<%} 
+		if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
+	<li><a href="EditProfile.jsp">My Profile</a></li>
+	<% }
+		if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
+	<li style="float:right"><a href="logout_action.jsp">Logout</a></li>
+	<%} 
+		else{%>
+			<li style="float:right"><a href="guestLogout_Action.jsp">Login</a></li>	
+		<%} %>
+	</ul>
+	<p class="header">Search Results:</p>
+	<div style="text-align: center;"></div>
+	<table style="text-align: left; width: 75%;" border="1">
 		<tbody>
 			<tr><%if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){ %>
-				<td style="text-align: center; width: 552px;"><br> Save
-					School to School List</td>
+				<th style="text-align: center; width: 552px;">Save to School List</th>
 					<%} %>
-				<td style="text-align: center; width: 552px;"><br>School
-					Name</td>
-				<td style="text-align: center; width: 552px;"><br>View
-					School Details</td>
+				<th style="text-align: center; width: 552px;">School
+					Name</th>
+				<th style="text-align: center; width: 552px;">View
+					School Details</th>
 			</tr>
 			
 				<% if(listSchools.isEmpty()){
@@ -237,19 +387,17 @@
 			%>
 				<td style="vertical-align: top;">
 					<form method="post" action="SaveAction.jsp" name="Save">
-						<input name="Save" value="Save" type="submit"> <input
-							name="schoolName" value="<%out.print(school);%>" type="hidden">
+						<input name="Save" value="Save" type="submit" class="submitButton"> 
+						<input name="schoolName" value="<%out.print(school);%>" type="hidden">
 					</form>
 				</td>
 				<% }%>
 				<td style="vertical-align: top;">
-					<%=
-						school
-					%>
+					<p class="name"><%=school%></p>
 				</td>
 				<td style="vertical-align: top;">
 					<form method="post" action="viewSchool.jsp" name="View">
-						<input name="View" value="View" type="submit"> <input
+						<input name="View" value="View" type="submit" class="viewButton"> <input
 							name="schoolName" value="<%out.print(school);%>" type="hidden">
 					</form>
 				</td>
@@ -260,12 +408,5 @@
 
 		</tbody>
 	</table>
-	<% if(aController2 ==null || !aController2.getLoggedIn().equals("guest")){
-			%>
-	<a href="Search.jsp">BACK TO MENU</a>
-	<%} 
-	 else{%>
-		<a href="guestMenu.jsp">BACK TO MENU</a> 
-	<% }%>
 </body>
 </html>
